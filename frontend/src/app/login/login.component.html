@@ -1,0 +1,69 @@
+<!--
+File: login.component.html
+Author: Varga Livia
+Copyright: 2026, Varga Livia
+Group: Szoft II-E
+Date: 2026 03 31
+Github:
+Licenc: MIT
+-->
+
+<section class="auth-page">
+    <article class="auth-card">
+        <h1>Belepes</h1>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="auth-form">
+            <div>
+                <label for="login-name" class="form-label">Felhasznalonev</label>
+                <input type="text" class="form-control" id="login-name" formControlName="name">
+            </div>
+
+            <div>
+                <label for="login-password" class="form-label">Jelszo</label>
+                <input type="password" class="form-control" id="login-password" formControlName="password">
+            </div>
+
+            @if (loginError) {
+                <p class="message error">{{ loginError }}</p>
+            }
+
+            <button type="submit" class="action-button">Belepes</button>
+        </form>
+    </article>
+
+    <article class="auth-card">
+        <h2>Regisztracio</h2>
+
+        <form [formGroup]="registerForm" (ngSubmit)="register()" class="auth-form">
+            <div>
+                <label for="register-name" class="form-label">Felhasznalonev</label>
+                <input type="text" class="form-control" id="register-name" formControlName="name">
+            </div>
+
+            <div>
+                <label for="register-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="register-email" formControlName="email">
+            </div>
+
+            <div>
+                <label for="register-password" class="form-label">Jelszo</label>
+                <input type="password" class="form-control" id="register-password" formControlName="password">
+            </div>
+
+            <div>
+                <label for="register-password-confirmation" class="form-label">Jelszo ujra</label>
+                <input type="password" class="form-control" id="register-password-confirmation" formControlName="password_confirmation">
+            </div>
+
+            @if (registerError) {
+                <p class="message error">{{ registerError }}</p>
+            }
+
+            @if (registerSuccess) {
+                <p class="message success">{{ registerSuccess }}</p>
+            }
+
+            <button type="submit" class="action-button secondary">Regisztracio</button>
+        </form>
+    </article>
+</section>
